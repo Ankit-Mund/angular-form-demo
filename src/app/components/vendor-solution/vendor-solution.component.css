@@ -1,0 +1,13 @@
+.editButtons{
+    text-align: right
+}
+.topbar{
+    display: flex;
+    justify-content: space-between
+}
+.container{
+    margin-left: 10px;
+}
+.tagIcon{
+    display: flex
+}

@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { VendorSolutionComponent } from './components/vendor-solution/vendor-solution.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VendorSolutionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

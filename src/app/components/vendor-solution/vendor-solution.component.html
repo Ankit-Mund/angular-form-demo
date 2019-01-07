@@ -1,0 +1,75 @@
+<form>
+  <div class="form-group mb-3">
+    <div class="row">
+      <div class="col-5">
+        <input type="search" class="form-control" value="Vendor Solution">
+      </div>
+      <div class="col-2">
+        <button class="btn btn-primary">Search Now</button>
+      </div>
+      <div class="col-5">
+        <button class="btn btn-light">Add New Vendor Solution</button>
+      </div>
+    </div>
+  </div>
+  <p class="font-weight-bold">Select Solution(s) then submit request below</p>
+  <hr/>
+  <div *ngFor="let eachData of data; let i=index">
+    <div *ngIf=eachData.editable>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-1">
+            <input type="checkbox" value="checkbox1">
+          </div>
+          <div class="col-5">
+            <input type="text" class="form-control" value={{eachData.title}}>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <p>{{eachData.details}}</p>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" value={{eachData.text}}>
+      </div>
+      <div class="form-group">
+        <div class="tagIcon">
+          <i class="fa fa-tag"></i>
+          <h5>Add Tag</h5>
+        </div>
+        <select class="form-control font-italic">
+        <option >Start Typing New Tag Name or select one to many options from the dropdown</option>
+    </select>
+        <br/>
+      </div>
+      <p>Tags</p>
+      <p *ngFor="let eachData of data">
+        <div *ngFor="let eachTag of eachData.tags">
+          <i class="fa fa-trash"></i>{{eachTag}}
+        </div>
+        <div class="editButtons">
+          <input type="button" class="btn btn-light" value="CANCEL" (click)="cancel(i)">
+          <input type="submit" class="btn btn-light" value="SAVE EDITS">
+        </div>
+        <hr/>
+    </div>
+
+    <div *ngIf=!eachData.editable>
+      <div class="row">
+        <div class="col-1">
+          <input type="checkbox" value="checkbox1">
+        </div>
+        <div class="col-4">
+          <h4>{{eachData.title}}</h4>
+        </div>
+        <div class="col-1">
+          <button (click)="showEditView(i)" class="btn btn-light" id="edit"><i class="fa fa-pencil"></i></button>
+        </div>
+      </div>
+      <h6>{{eachData.details}}</h6>
+      <p>{{eachData.text}}</p>
+      <i class="fa fa-tag"></i> tag name1, tag name 2, tag name 3, tag name 4, tag name 5, 4+
+      <hr/>
+    </div>
+  </div>
+</form>
